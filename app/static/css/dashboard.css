@@ -1,0 +1,162 @@
+:root {
+  --bg: #eef3f8;
+  --panel: #ffffff;
+  --text: #1b2b40;
+  --muted: #5f738b;
+  --ok: #11967f;
+  --warn: #dc4f4f;
+  --accent: #1769aa;
+  --line: #d7e0ea;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at 10% 10%, #f8fbff 0%, var(--bg) 45%, #e7eef7 100%);
+}
+
+.topbar {
+  padding: 18px 24px;
+  background: linear-gradient(120deg, #0f4c81, #1a78ba);
+  color: #f7fbff;
+  box-shadow: 0 4px 14px rgba(9, 35, 58, 0.25);
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.topbar p {
+  margin: 8px 0 0;
+  color: #d8ebff;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  padding: 18px;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 8px 18px rgba(19, 47, 75, 0.07);
+}
+
+.panel h2 {
+  margin-top: 0;
+}
+
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.card {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: #fcfeff;
+}
+
+.card.alarm {
+  border-color: #ef8f8f;
+  background: #fff2f2;
+  animation: pulse 1.2s infinite;
+}
+
+.badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 4px 9px;
+  font-size: 12px;
+  color: #fff;
+}
+
+.badge.on {
+  background: var(--ok);
+}
+
+.badge.off {
+  background: #8a97a5;
+}
+
+.meta {
+  color: var(--muted);
+  margin-top: 8px;
+  font-size: 13px;
+}
+
+.alarm-text {
+  margin: 8px 0 6px;
+  color: #b3261e;
+  font-weight: 700;
+}
+
+select {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px 9px;
+  color: var(--text);
+  background: #fff;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.controls label {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.chart-wrap {
+  position: relative;
+  height: 320px;
+  min-height: 320px;
+}
+
+#trendChart {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .chart-wrap {
+    height: 240px;
+    min-height: 240px;
+  }
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(220, 79, 79, 0.3); }
+  70% { box-shadow: 0 0 0 10px rgba(220, 79, 79, 0.0); }
+  100% { box-shadow: 0 0 0 0 rgba(220, 79, 79, 0.0); }
+}
+
+@media (min-width: 980px) {
+  .layout {
+    grid-template-columns: 1.1fr 1.4fr;
+  }
+}

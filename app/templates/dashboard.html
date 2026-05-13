@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IoT 環境監控儀表板</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+  <link rel="stylesheet" href="/static/css/dashboard.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>IoT 環境監控儀表板</h1>
+    <p id="generatedAt">最後更新：-</p>
+  </header>
+
+  <main class="layout">
+    <section class="panel">
+      <h2>區域狀態</h2>
+      <div id="areaCards" class="cards"></div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2>最近 120 分鐘趨勢</h2>
+        <div class="controls">
+          <label for="intervalSelect">記錄間隔</label>
+          <select id="intervalSelect">
+            <option value="10">10 秒</option>
+            <option value="20">20 秒</option>
+            <option value="30">30 秒</option>
+          </select>
+        </div>
+        <select id="areaSelect"></select>
+      </div>
+      <div class="chart-wrap">
+        <canvas id="trendChart"></canvas>
+      </div>
+    </section>
+  </main>
+
+  <script src="/static/js/dashboard.js"></script>
+</body>
+</html>
