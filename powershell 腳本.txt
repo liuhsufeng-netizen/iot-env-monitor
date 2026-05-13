@@ -1,0 +1,6 @@
+VS Code開啟專案後，需要先以powershell建立虛擬環境
+以下為指令
+
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
